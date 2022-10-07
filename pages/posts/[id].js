@@ -5,7 +5,6 @@ import utilStyles from '../../styles/utils.module.css';
 
 export async function getStaticPaths() {
   const paths = await getAllPostIds();
-  console.log(paths)
   return {
     paths,
     fallback: true,
@@ -28,11 +27,10 @@ export default function Post({ postData }) {
         <title>{postData.title.rendered}</title>
       </Head>
       <article>
-        {/* <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
-        </div> */}
-        <div dangerouslySetInnerHTML={{ __html: postData.content.rendered }} />
+        </div>
       </article>
     </Layout>
   );
